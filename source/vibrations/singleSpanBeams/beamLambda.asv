@@ -1,0 +1,15 @@
+function lambda = beamLambda(cond,i)
+% this function calculates the lambda dimensionless parameter for mode 
+% shapes. The method is adopted from "Formulas for Natural Frequency and 
+% Mode Shapes" by Dr. Robert D. Blevins
+% Input options
+%       Free-Free
+
+
+% get the boundary conditions
+switch cond
+    
+    case "Free-Free"
+
+
+end
