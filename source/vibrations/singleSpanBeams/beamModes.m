@@ -18,6 +18,7 @@ function beamOut = beamModes(beam,i,cond)
 %       boundary conditions must be one of the following.
 %           Free-Free
 %           Clamped-Clamped
+%           Clamped-Free
 
 % calculate discretization point locations
 beam.x = linspace(0,beam.L,beam.n);
