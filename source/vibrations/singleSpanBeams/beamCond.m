@@ -33,6 +33,33 @@ switch cond
                 (cosh(lp1) + cos(lp1) - ...
                  sigma.* (sinh(lp1) + sin(lp1)));   % (null) normalized mode shapes
         
+    case {"Clamped-Free"}
+        
+        %% set the first five nondimensional parameters
+        lambda = vpa(...
+                    [1.87510407
+                    4.69409113
+                    7.85475744
+                    10.99554073
+                    14.13716839]...
+                    ,9);            % (null) - higher frequency mode shapes specified with (2*i + 1)*pi/2
+        sigma  = vpa(...
+                    [0.734095514
+                    1.018467319
+                    0.999224497
+                    1.000033553
+                    0.999998550]...
+                    ,9);            % (null) - higher frequency mode shapes specified with approx. = 1
+                
+        %% establish functions for higher mode parameters if necessary
+        lamFun = @(i)(2*i - 1)*pi/2;        % set the function handle
+        sigFun = @(i)(1);                   % set the function handle
+        
+        %% establish mode shape functions
+        lp1 = lambda(idxs) * beam.x./beam.L;        % common lumped parameter #1
+        modeFun = @(sigma)...
+                (cosh(lp1) - cos(lp1) - ...
+                 sigma.* (sinh(lp1) - sin(lp1)));   % (null) normalized mode shapes             
         
     otherwise
         
