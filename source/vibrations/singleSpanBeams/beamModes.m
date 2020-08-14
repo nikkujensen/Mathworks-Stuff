@@ -10,7 +10,6 @@ function beamOut = beamModes(beam,i,cond)
 %           beam.I: area moment of inertia (m^4)
 %           beam.m: mass per unit length (kg/m) - Hint: rho * A
 %           beam.n: number of discretization points (null)
-%
 %       index must be an integer or vector of integers. For instance
 %           i = 1
 %           i = [1 3 7]
@@ -32,16 +31,13 @@ f = double(...
             );                                      % (Hz)
 omg = 2*pi*f;                                       % (rad/s)
 
-% calculate mode shapes
-lp = lambda * beam.x./beam.L;                       % lumped parameter
-ModeShapes = cosh(lp) + cos(lp) - ...
-                  sigma .* (sinh(lp) + sin(lp));    % (null)    normalized mode shapes
+% calculate the mode shapes based on the boundary conditions
+beamModeShapes(beam,lambda,sigma,cond);
 
 % assign outputs
 beamOut = beam;
 beamOut.wn = omg;
 beamOut.fn = f;
 beamOut.Tn = 1./f;
-beamOut.modes = ModeShapes;
 
 end
