@@ -9,7 +9,7 @@ function beamOut = beamModes(beam,i,cond)
 %           beam.L: beam length (m)
 %           beam.I: area moment of inertia (m^4)
 %           beam.m: mass per unit length (kg/m) - Hint: rho * A
-%           beam.n: number of discretization points (null)
+%           beam.n: number of discreti
 %
 %       index must be an integer or vector of integers. For instance
 %           i = 1
@@ -22,14 +22,9 @@ function beamOut = beamModes(beam,i,cond)
 % dimensionless constants for mode shapes
 [lambda, sigma] = beamNonDim(cond,i);
 
-% calculate discretization point locations
-beam.x = linspace(0,beam.L,beam.n);
-
 % calculate frequencies
-f = double(...
-    lambda(i).^2/...
-    (2*pi*beam.L^2) * sqrt(beam.E*beam.I./beam.m)...
-            );                                      % (Hz)
+f = lambda(i).^2/...
+    (2*pi*beam.L^2) * sqrt(beam.E*beam.I./beam.m);  % (Hz)
 omg = 2*pi*f;                                       % (rad/s)
 
 % calculate mode shapes
