@@ -23,7 +23,7 @@ for i = 1:numGenC
     dL_dqdot_dt = diff(dL_dqdot,t);             % diff WRT time
     dL_dqdot_dt = subs(dL_dqdot_dt,varT,varS);  % subs for symbolic version
     dL_dq       = diff(Lag,varDEQ(i,k));        % partial WRT q
-    dP_dqdot    = diff(Pi(i),varDEQ(i,kDot));   % partial WRT qdot
+    dP_dqdot    = diff(Pi,varDEQ(i,kDot));      % partial WRT qdot
     
     % assign the equation
     eq(i) = dL_dqdot_dt - dL_dq + dP_dqdot;
