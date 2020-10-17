@@ -18,14 +18,14 @@ kDDot = 3;          % second deriv
 eq = sym([]);           % initialize the equations
 
 for i = 1:numGenC
-    dL_dqdot    = diff(Lag,varDEQ(i,kDot));       % partial WRT qdot
+    dL_dqdot    = diff(Lag,varDEQ(i,kDot));     % partial WRT qdot
     dL_dqdot    = subs(dL_dqdot,varS,varT);     % subs for time deriv next
     dL_dqdot_dt = diff(dL_dqdot,t);             % diff WRT time
     dL_dqdot_dt = subs(dL_dqdot_dt,varT,varS);  % subs for symbolic version
-    dL_dq       = diff(Lag,varDEQ(i,k));          % partial WRT q
+    dL_dq       = diff(Lag,varDEQ(i,k));        % partial WRT q
     
     % assign the equation
-    eq = [eq;dL_dqdot_dt - dL_dq];
+    eq(i) = dL_dqdot_dt - dL_dq;
     
 end
 
