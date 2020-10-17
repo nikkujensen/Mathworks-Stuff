@@ -1,4 +1,4 @@
-function [MM,FF] = lagrangeEQNS(Lag,Qi,varDEQ,varS,varT)
+function [MM,FF] = lagrangeEQNS(Lag,Pi,Qi,varDEQ,varS,varT)
 
 % define some common parameters
 t        = sym('t','real');                 % time. used for time version definitions
@@ -23,9 +23,10 @@ for i = 1:numGenC
     dL_dqdot_dt = diff(dL_dqdot,t);             % diff WRT time
     dL_dqdot_dt = subs(dL_dqdot_dt,varT,varS);  % subs for symbolic version
     dL_dq       = diff(Lag,varDEQ(i,k));        % partial WRT q
+    dP_dqdot    = diff(Pi(i),varDEQ(i,kDot));   % partial WRT qdot
     
     % assign the equation
-    eq(i) = dL_dqdot_dt - dL_dq;
+    eq(i) = dL_dqdot_dt - dL_dq + dP_dqdot;
     
 end
 
