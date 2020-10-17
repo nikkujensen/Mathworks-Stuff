@@ -31,7 +31,7 @@ for i = 1:numGenC
 end
 
 % form the whole equation with generalized forces
-eq = simplify(eq);              % simplify the expression
+eq = simplify(expand(eq));      % simplify the expression
 eq = subs(eq,varT,varS);        % make sure time versions are subs
 [MM,FF] = equationsToMatrix(eq(:) == Qi(:),varDEQ(:,kDDot));
 
