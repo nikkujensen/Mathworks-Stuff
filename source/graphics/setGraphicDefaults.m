@@ -1,6 +1,10 @@
 % this script is for setting personal defaults regarding graphics options
 % for the current MATLAB session
 
+% A helpful article <https://www.mathworks.com/help/matlab/creating_plots/default-property-values.html 
+% here> regarding the default settings for graphics objects. And <https://www.mathworks.com/help/matlab/graphics-objects.html 
+% here> is the locations for the graphics objects in MATLAB.
+
 % global params
 FS = 11;                                            % font size
 FW = "bold";                                        % font weight
