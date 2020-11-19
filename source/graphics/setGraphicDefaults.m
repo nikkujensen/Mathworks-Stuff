@@ -11,7 +11,7 @@ FW = "bold";                                        % font weight
 INTERP = "latex";                                   % interpreter
 CLRORDR = [1 0 0;0 0 1;0 1 0;0 0 0;1 0 1;0 1 1];    % color order ('r','b','g','k','m','c')
 LSORDR  = ["-","--","-.",":"];                      % line style order
-LW = 2;                                             % line width
+LW = 1.5;                                             % line width
 % LEGLOC = "best";                                    % legend location
 
 % axes settings
