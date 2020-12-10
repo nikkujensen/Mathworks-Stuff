@@ -9,7 +9,7 @@ function printPDFPlot(h) % input a figure. output a figure and use the print com
 % Example code
 % if cPrint == 1
     % for i = 1:length(h)
-        % fig = printPdfPlot(h(i).fig);
+        % fig = printPDFPlot(h(i).fig);
         % figPath = "figures\";                           % set the path for saving
         % figFullname = strcat(figPath,h(i).filename);    % create the full filename
         % print(fig,figFullname,'-dpdf')
