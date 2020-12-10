@@ -1,5 +1,8 @@
-function printPDFPlot(h) % input a figure. output a figure and use the print command
-% this is used to print a pdf of a figure that is cropped to its minimum
+function printPDFPlot(h)
+% this function takes a structure of figures and prints them to PDFs. Note:
+% the figures need to be open for this function to work properly.
+%
+% This is used to print a pdf of a figure that is cropped to its minimum
 % size for use in documents say written in Latex
 % Requirements:
 		% - the figure object must have the following two properties
@@ -7,13 +10,9 @@ function printPDFPlot(h) % input a figure. output a figure and use the print com
 			% 2. h.filename
 			
 % Example code
-% if cPrint == 1
-    % for i = 1:length(h)
-        % fig = printPDFPlot(h(i).fig);
-        % figPath = "figures\";                           % set the path for saving
-        % figFullname = strcat(figPath,h(i).filename);    % create the full filename
-        % print(fig,figFullname,'-dpdf')
-    % end
+% if flags.pdfPrint
+%     % print all the figures. Note: they must be open still
+%     printPDFPlot(dat.h) 
 % end
 
 % get the input and loop if necessary
