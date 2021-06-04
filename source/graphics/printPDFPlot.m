@@ -10,7 +10,9 @@ function printPDFPlot(h)
 			% 2. h.filename
 % Options:
         % - optional fields to be used for print sizing/scaling
-            % 1. h.size ([width height]) % default in inches
+            % 1. h.size  ([width height]) % default in inches
+            % 2. h.width ( width )        % default in inches. Note: size
+            % overrides width
 			
 % Example code
 % if flags.pdfPrint
@@ -48,6 +50,8 @@ end
         % check if the export size is specified
         if isfield(h,'size')
             pos = h.size;                           % get the size of the figure
+        elseif isfield(h,'width')
+            pos = h.width*[1 3/4];                  % use a 4:3 aspect ratio based on desired width
         else
             pos = h.fig.Position;                   % get the size of the figure
         end
