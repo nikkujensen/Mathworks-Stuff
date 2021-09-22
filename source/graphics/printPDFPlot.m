@@ -8,6 +8,7 @@ function printPDFPlot(h)
 		% - the figure object must have the following two properties
 			% 1. h.fig
 			% 2. h.filename
+            % 3. h.figTyp
 % Options:
         % - optional fields to be used for print sizing/scaling
             % 1. h.size  ([width height]) % default in inches
@@ -32,7 +33,7 @@ for i = 1:length(h)
     hTemp = printPDF(h(i));
     figPath = "figures\";                           % set the path for saving
     figFullname = strcat(figPath,hTemp.filename);   % create the full filename
-    exportgraphics(hTemp.fig,strcat(figFullname,".pdf"),...
+    exportgraphics(hTemp.fig,strcat(figFullname,h(i).figTyp),...
         "ContentType","vector");                    % export the fig with tight margins and embedded fonts
     
     % return to original fig position and toggle visibility
