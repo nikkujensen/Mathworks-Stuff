@@ -9,16 +9,7 @@ Lag = subs(Lag,varT,varS);  % assert the Lagrangian as symbolic first
 Lag = simplify(Lag);        % simplify the expression
 Lag = formula(Lag);         % assert sym format
 
-% extract the generalized force coefficients
-jj = 1;                             % initialize
-Q_coeffs = sym(zeros(size(Qi)));    % initialize
-for Q = Qi.'
-    % get the coeff
-    Q_coeffs(jj) = coeffs(Qi(jj),varS(jj,2));
-    
-    % counter
-    jj = jj + 1;
-end
+% extract the generalized forc
 
 % define some indices for the vectors
 k     = 1;          % generalized coordinate
@@ -44,6 +35,6 @@ end
 % form the whole equation with generalized forces
 eq = simplify(expand(eq));      % simplify the expression
 eq = subs(eq,varT,varS);        % make sure time versions are subs
-[MM,FF] = equationsToMatrix(eq(:) == Q_coeffs(:),varDEQ(:,kDDot));
+[MM,FF] = equationsToMatrix(eq(:) == Qi(:),varDEQ(:,kDDot));
 
 end
