@@ -14,7 +14,11 @@ jj = 1;                             % initialize
 Q_coeffs = sym(zeros(size(Qi)));    % initialize
 for Q = Qi.'
     % get the coeff
-    Q_coeffs(jj) = coeffs(Qi(jj),varS(jj,2));
+    if Qi(jj) ~= sym(0)
+        Q_coeffs(jj) = coeffs(Qi(jj),varS(jj,2));
+    else
+        Q_coeffs(jj) = 0;
+    end
     
     % counter
     jj = jj + 1;
