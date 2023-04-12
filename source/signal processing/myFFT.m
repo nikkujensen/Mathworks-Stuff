@@ -1,5 +1,5 @@
 function  [Y1S, f, Y2] = myFFT(time,sig,win,WCF)
-%MY5700FFT Summary of this function goes here
+%MYFFT Summary of this function goes here
 %   Note: the blocks of matrices of data are in the rows and the data is in the
 %   columns. Data goes from top to bottom. Blocks go from left to right. 
 %   This goes for the time, signal, and window.
